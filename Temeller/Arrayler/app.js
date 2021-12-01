@@ -61,7 +61,5 @@ value = numbers.sort(function(x,y){ //Büyükten Küçüğe Sıralama
 });
 
 
-
-
-
 console.log(value);
+

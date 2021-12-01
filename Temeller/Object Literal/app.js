@@ -1,4 +1,5 @@
 let value;
+let value2;
 
 const programmer = {
     name: "Cihan Duran",
@@ -33,6 +34,6 @@ const programmers = [
 ]
 
 value = programmers [0].name;
-
-
+console.log(value);
+value = programmers [0].age;
 console.log(value);
