@@ -70,10 +70,71 @@
 // }
 
 
-const error = true;
+// const error = true;
 
-if (error == true) {
-    console.log("Hata oluştu!");
-}
+// if (error == true) {
+//     console.log("Hata oluştu!");
+// }
+// else {  // buranın çalışması üsttekine bağlı
+//     console.log("Hata oluşmadı!")
+// }
 
-console.log("Deneme!");
+// console.log("Deneme!");
+
+
+// const user1 = "cihan";
+// const user2 = "ahmet";
+// const user3 = "faruk";
+
+// if (user1 === "cihan") {
+//     console.log("Kullanıcı Bulundu!");
+// }
+
+// else {
+//     console.log("Kullanıcı Bulunamadı!")
+// }
+
+///////////////////////////////////////////////// 
+
+// const process = "6";
+
+// if (process === "1"){
+//     console.log("İşlem 1 Doğru");
+// }
+// else if (process === "2"){
+//     console.log("İşlem 2 Doğru");
+// }
+// else if (process === "3"){
+//     console.log("İşlem 3 Doğru");
+// }
+// else if (process === "4"){
+//     console.log("İşlem 4 Doğru");
+// }
+
+// else {
+//     console.log("İşlem Kontrolu Sağlayın!"); 
+// }
+
+
+///////////////////////////////////////////////// 
+
+const number = 100;
+
+// if (number == 100) {
+//     console.log("Sayı 100'e Eşit!");
+// }
+// else {
+//     console.log("Sayı 100'e Eşit Değil!");
+// }
+
+///////////////////////////////////////////////// 
+
+// Ternary Operatörü 
+
+// console.log(number === 100 ? "Sayı 100" : "Sayı 100 Değil");
+
+///////////////////////////////////////////////// 
+
+if (number === 100) 
+    console.log ("Sayı 100");
+else console.log ("Sayı 100 Değil");
