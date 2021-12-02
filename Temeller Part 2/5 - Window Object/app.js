@@ -51,4 +51,6 @@ value = window.outerWidth;
 value = window.scrollX;
 value = window.scrollY;
 
+
+
 console.log(value);
