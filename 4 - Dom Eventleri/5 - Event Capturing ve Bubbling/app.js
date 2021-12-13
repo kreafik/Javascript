@@ -1,32 +1,36 @@
-const filter = document.getElementById("filter");
+// Event Bubbling
 
-// document.addEventListener("DomContentLoaded",load);
+// document.querySelector(".container").addEventListener("click", function(){
+//     console.log("Conainer");
+// });
 
-// function load(e){
-//     console.log("Sayfa Yüklendi!");
-// }
+// document.querySelector(".card.row").addEventListener("click", function(){
+//     console.log("Card Row");
+// });
 
-// console.log(filter);
-
-// Focus 
-// filter.addEventListener("focus",run);
-
-//Blur 
-// filter.addEventListener("blur",run);
+// document.querySelectorAll(".card-body")[1].addEventListener("click", function(){
+//     console.log("Card Body");
+// });
 
 
-// Paste
-filter.addEventListener("paste",run);
 
-// Copy
-filter.addEventListener("copy",run);
+// Event Capturing veya Delegation
 
-// Cut
-filter.addEventListener("cut",run);
+const cardbody = document.querySelectorAll(".card-body")[1];
+cardbody.addEventListener("click", run);
 
-// Select
-filter.addEventListener("select",run);
 
 function run(e){
-    console.log(e.type);
+
+    if (e.target.className === "fa fa-remove"){
+        console.log("Silme İşlemi");
+    }
+    if (e.target.id === "filter") {
+        console.log("Filtreleme İşlemi");
+    }
+    if (e.target.id === "clear-todos"){
+        console.log("Tüm Tasklar Temizlendi!");
+    }
+    // console.log(e.target);
 }
+
