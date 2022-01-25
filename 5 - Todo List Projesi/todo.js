@@ -10,6 +10,50 @@ addEventListeners();
 
 function addEventListeners() { // Tüm evenet listenerlar 
     form.addEventListener("submit", addTodo);
+    document.addEventListener("DOMContentLoaded", loadAllTodosToUI);
+    secondCardBody.addEventListener("click", deleteTodo);
+    filter.addEventListener("keyup", filterTodos);
+}
+
+function filterTodos(e){
+    const filterValue = e.target.value.toLowerCase();
+    const listItems = document.querySelectorAll(".list-group-item");
+
+    listItems.forEach(function(listItem) {
+        const text = listItem.textContent.toLowerCase();
+    })
+}
+
+function deleteTodo(e){
+    if (e.target.className === "fa fa-remove"){
+        e.target.parentElement.parentElement.remove();
+        deleteTodoFromStorage(e.target.parentElement.parentElement.textContent);
+        showAlert("success", "Silindi");
+    }
+}
+
+function deleteTodoFromStorage (deletetodo){
+    let todos = getTodosFromStorage();
+
+    todos.forEach(function(todo, index){
+        if (todo === deletetodo ) {
+            todos.splice(index,1); // Arrayden değeri silmek
+        }
+    });
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+
+}
+
+
+
+function loadAllTodosToUI() {
+    let todos = getTodosFromStorage();
+
+    todos.forEach(function(todo) {
+        addTodoToUI(todo);
+
+    })
 }
 
 function addTodo(e) {
@@ -24,6 +68,7 @@ function addTodo(e) {
     }
     else {
         addTodoToUI(newTodo); // Ekle
+        addTodoToStorage(newTodo);
         showAlert("success", "helalin var!");
         
     }
@@ -32,6 +77,27 @@ function addTodo(e) {
 
     
     e.preventDefault();
+}
+function getTodosFromStorage(newTodo) {
+    let todos;
+
+    if (localStorage.getItem("todos") === null){
+        todos = [];
+    }
+    else  {
+        todos = JSON.parse(localStorage.getItem("todos"));
+    }   
+
+    return todos;
+}
+
+
+function addTodoToStorage(newTodo) {
+    let todos = getTodosFromStorage();
+
+    todos.push(newTodo);
+    localStorage.setItem("todos", JSON.stringify(todos));
+
 }
 
 function showAlert (type, message){
@@ -68,7 +134,6 @@ function addTodoToUI(newTodo) { // String değerini list item olarak UI'a ekleye
     todoInput.value = ""; // Girdikten sonra autocomplete i siler
 
 
-    console.log(listItem);
 
 
-}
+} 
